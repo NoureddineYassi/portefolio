@@ -1,0 +1,1013 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Fira Code, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #282c33;
+  /* two copies of the same image: left, right */
+  background-image: url('imag/background.png'), url('imag/background.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right bottom;
+  /* responsive size: min 180px, prefers 12vw, max 360px */
+  background-size: clamp(380px, 12vw, 900px) auto,
+    clamp(400px, 12vw, 800px) auto;
+  background-attachment: fixed, fixed;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/*---------header-----------*/
+
+header {
+  width: 100%;
+  height: 70px;
+  background-color: #21252b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  background-color: #30353d;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.nav-left {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.nav-inner li {
+  list-style: none;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-left a:hover {
+  color: #c778dd;
+}
+
+.nav-left span {
+  color: #c778dd;
+  font-weight: bold;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+.nav-right a:hover {
+  color: #c778dd;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 10px 20px;
+  }
+  .nav-inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .main-links {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #21252b;
+    padding: 20px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 280ms cubic-bezier(0.2, 0.9, 0.2, 1), opacity 280ms;
+    z-index: 60;
+    gap: 25px;
+  }
+
+  .main-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    z-index: 70;
+    cursor: pointer;
+  }
+
+  .nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 280ms ease;
+    z-index: 55;
+  }
+
+  .nav-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .main-links li {
+    margin: 6px 0;
+  }
+  .no-scroll {
+    overflow: hidden;
+  }
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/*---------Main-----------*/
+
+main .hero {
+  display: flex;
+  flex-direction: row;
+  color: #ffffff;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 16px;
+  gap: 40px;
+}
+
+main .hero > div:first-child {
+  flex: 1 1 50%;
+  min-width: 220px;
+  overflow-wrap: break-word;
+}
+main .hero .intro h1 {
+  font-size: 2.5rem;
+  color: #c778dd;
+}
+main .hero .intro span {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+main .hero .intro h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #c778dd;
+}
+
+.imgee {
+  flex: 0 1 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgee img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 490px;
+}
+
+.button-hero-container {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.button-hero-container a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #c778dd;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  box-shadow: 0 6px 18px rgba(199, 120, 221, 0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* hover / focus / active */
+.button-hero-container a:hover,
+.button-hero-container a:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.button-hero-container a:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.quote-box {
+  margin-top: 60px;
+  padding: 15px 25px;
+  border-left: 4px solid #c778dd;
+  background-color: rgba(255, 255, 255, 0.02); /* subtle contrast on dark bg */
+  color: #e6e6e6;
+  max-width: 730px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.quote-icon {
+  font-size: 3rem;
+  color: #c778dd;
+  line-height: 1;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.quote-box > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 1rem;
+}
+
+.quote {
+  font-size: 1.25rem;
+  line-height: 1.45;
+  margin: 0;
+  font-style: italic;
+  color: #ffffff;
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.author {
+  font-size: 1rem;
+  text-align: right;
+  color: #c778dd;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  main .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  main .hero > div:first-child {
+    min-width: 0;
+  }
+
+  main .hero .imgee {
+    flex: none;
+    width: 100%;
+    margin-top: 5px;
+  }
+  .button-hero-container {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .button-hero-container a {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+    width: auto;
+    min-width: 160px;
+  }
+
+  .quote-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/*---------Projects Section-----------*/
+
+.nav-toggle:focus-visible {
+  outline: 3px solid rgba(199, 120, 221, 0.24);
+  outline-offset: 4px;
+}
+
+.projects-section {
+  padding: 90px 16px;
+  color: #ffffff;
+  background: transparent;
+}
+
+.projects {
+  max-width: 1200px;
+  margin: 0 auto 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.projects h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.projects h2 span {
+  color: #c778dd;
+}
+
+.projects .linee {
+  flex: 0 1 350px;
+  max-width: 350px;
+  height: 2px;
+  background-color: rgba(199, 120, 221, 0.4);
+  border-radius: 2px;
+}
+
+.projects .viewall {
+  margin-left: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.projects .viewall:hover {
+  color: #c778dd;
+}
+
+.projects-content {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  align-items: stretch;
+  scrollbar-width: none;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity; /* or 'mandatory' if you want strict snap */
+  -webkit-overflow-scrolling: touch;
+}
+
+.projects-content::-webkit-scrollbar {
+  display: none;
+}
+
+.pro-item {
+  flex: 0 0 calc((100% - 40px) / 3);
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 260ms;
+  transform-origin: center center;
+  scroll-snap-align: center;
+  background: #111;
+
+  border-radius: 14px; /* ← radius من جميع الجهات */
+  overflow: hidden; /* مهم باش الصورة ما تخرجش */
+  display: flex;
+  flex-direction: column;
+}
+
+.pro-item.active {
+  transform: scale(1.06);
+  z-index: 5;
+}
+
+.pro-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #111;
+  display: block;
+  cursor: pointer;
+}
+
+.pro-img img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /*fill the box and crop */
+  object-position: center;
+  transition: transform 260ms cubic-bezier(0.2, 0.9, 0.2, 1), filter 260ms;
+  transform-origin: center center;
+}
+
+.pro-item.active .pro-img img {
+  transform: scale(1.6);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.projects-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.proj-btn {
+  background: rgba(199, 120, 221, 0.12);
+  border: none;
+  color: #c778dd;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 160ms ease;
+}
+.proj-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.proj-btn:focus-visible {
+  outline: 3px solid rgba(199, 120, 221, 0.24);
+  outline-offset: 4px;
+}
+
+.pro-info {
+  background: #21252b;
+  color: #fff;
+  padding: 16px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pro-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #c778dd;
+}
+
+.pro-info p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.pro-info:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 0, 76, 0.2);
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 60px 16px;
+  }
+
+  .projects {
+    gap: 15px;
+  }
+
+  .projects .linee {
+    display: none;
+  }
+  .projects .viewall {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .pro-item {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 520px) {
+  .pro-item {
+    flex: 0 0 100%;
+  }
+}
+
+/*---------Education Section-----------*/
+
+.section-header .linee {
+  flex: 0 0 200px; /* starts at 120px and won’t grow */
+  max-width: 300px;
+  height: 2px;
+  background: rgba(199, 120, 221, 0.4);
+}
+
+.education-section h2 {
+  color: #ffffff;
+}
+
+/* ===== EDUCATION TIMELINE ===== */
+
+.education-section {
+  padding: 60px 16px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+/* الخط العمودي */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(199, 120, 221, 0.7);
+  transform: translateX(-50%);
+  border-radius: 4px;
+}
+
+/* item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* left / right */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+/* dot */
+.timeline-item .dot {
+  position: absolute;
+  top: 22px;
+  left: 100%;
+  width: 16px;
+  height: 16px;
+  background: #c778dd;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.timeline-item.right .dot {
+  left: 0;
+}
+
+/* year */
+.timeline-item .year {
+  color: #c778dd;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+/* content box */
+.timeline-item .content {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.timeline-item .content h3 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  color: #fff;
+  text-align: center;
+}
+.timeline-item .content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e6e6e6;
+  text-align: center;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+  /* move the center line to the left edge */
+  .timeline::before {
+    left: 20px;
+  }
+
+  /* stack items vertically and make space for the line + dot */
+  .timeline-item {
+    width: 100%;
+    padding-left: 56px; /* space so text doesn't overlap the line */
+    padding-right: 16px;
+    text-align: left;
+    left: 0 !important; /* override left:50% / left:0 from desktop rules */
+    box-sizing: border-box;
+  }
+
+  /* dot sits at fixed left position near the line */
+  .timeline-item .dot {
+    left: 20px !important;
+    transform: translateX(-50%); /* keep dot centered on the line */
+    top: 18px; /* adjust vertically if needed */
+  }
+
+  /* place year above the content and align left */
+  .timeline-item .year {
+    position: relative;
+    display: block;
+    margin: 0 0 8px 0;
+    text-align: left;
+    left: 0 !important;
+    width: auto;
+  }
+
+  /* ensure the content box uses full width and has no left margin */
+  .timeline-item .content {
+    margin-left: 0;
+    padding: 12px 14px;
+  }
+}
+
+/*---------Contact Section-----------*/
+
+.contact {
+  padding: 70px 16px;
+  color: #ffffff;
+  background: transparent;
+  max-width: 1200px;
+  margin: 0 auto 1px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+}
+
+.contact h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact h2 span {
+  color: #c778dd;
+}
+
+.contact .linee {
+  flex: 0 1 350px;
+  max-width: 350px;
+  height: 2px;
+  background-color: rgba(199, 120, 221, 0.4);
+  border-radius: 2px;
+}
+
+/* layout: make message column and form column share space nicely */
+.contact-form-wrapper {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+/* ensure message block doesn't shrink too much */
+.contact-msg {
+  flex: 0 0 420px;
+  max-width: 100%;
+  min-width: 260px;
+  font-size: 1rem;
+  color: #abb2bf;
+  line-height: 1.6;
+  margin-left: 30px;
+  text-align: center;
+}
+
+.contact-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* المسافة بين <p> و <img> */
+  font-size: 1rem;
+  color: #e6e6e6;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* الصورة */
+.contact-msg img {
+  width: 200px; /* حجم الصورة */
+  height: 200px; /* نفس العرض باش تولّي دائرة */
+  max-width: none; /* حيد الحد الأقصى */
+  border-radius: 50%; /* دائرة */
+  margin: 30px auto 0; /* وسطها وتحت <p> */
+  opacity: 0.95;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .contact-msg img {
+    max-width: 100%;
+  }
+}
+
+.contact-msg a {
+  color: #c778dd;
+  text-decoration: underline;
+}
+
+/* form takes remaining space */
+.contact-form {
+  flex: 1 1 420px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* inputs / textarea */
+.contact-form input[type='text'],
+.contact-form input[type='email'],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #e6e6e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease,
+    transform 120ms ease;
+  resize: vertical;
+}
+
+/* focus style (keyboard users) */
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  box-shadow: 0 6px 18px rgba(199, 120, 221, 0.12);
+  border-color: rgba(199, 120, 221, 0.65);
+}
+
+/* placeholder color */
+.contact-form ::placeholder {
+  color: rgba(230, 230, 230, 0.45);
+}
+
+/* submit button */
+.btn-send {
+  align-self: flex-start; /* will stay left on desktop */
+  padding: 10px 18px;
+  background: #c778dd;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+.btn-send:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+.btn-send:active {
+  transform: translateY(-1px);
+}
+.btn-send:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* form status message */
+.form-status {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  min-height: 1.2em;
+}
+.form-status.success {
+  color: #d1ffd6;
+  background: rgba(0, 128, 0, 0.06);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+.form-status.error {
+  color: #ffd6d6;
+  background: rgba(255, 0, 0, 0.04);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+/* small screens: stack vertically and make inputs full width */
+@media (max-width: 768px) {
+  .contact {
+    padding: 20px 1px;
+  }
+  .contact .linee {
+    display: none;
+  }
+
+  .contact-form-wrapper {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .contact-msg {
+    max-width: 100%;
+    flex: 0 0 auto;
+    order: 1;
+  }
+
+  .contact-form {
+    order: 2;
+    width: 100%;
+    max-width: none;
+  }
+
+  .btn-send {
+    width: 100%;
+    text-align: center;
+    align-self: stretch;
+  }
+
+  .section-header .linee {
+    display: none;
+  } /* optional: keep header line hidden on very small screens */
+}
+
+/* accessibility: visible focus outline for keyboard users */
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible,
+.btn-send:focus-visible {
+  outline: 3px solid rgba(199, 120, 221, 0.24);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  color: #ffffff;
+}
+
+/*---------Footer-----------*/
+
+/* ensure footer covers full width and has your bg color */
+.site-footer {
+  width: 100%;
+  background: #21252b; /* عدّل اللون إلا بغيتي */
+  color: #abb2bf;
+  padding: 20px 16px;
+  box-sizing: border-box;
+}
+
+/* remove any boxed background/shadow that .container may bring inside footer */
+.site-footer .container,
+.site-footer .footer-inner {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0; /* footer controls padding */
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* layout: keep centered row on desktop */
+.site-footer .footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center horizontally if room */
+  gap: 20px;
+}
+
+/* center block (icons + text) */
+.site-footer .footer-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+/* side lines keep only on larger screens */
+.site-footer .footer-line {
+  flex: 1 1 0;
+  height: 1px;
+  background: rgba(199, 120, 221, 0.18);
+  min-width: 40px;
+  border-radius: 2px;
+}
+
+/* social row adjustments (bigger touch target on mobile below) */
+.site-footer .social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* center icons a bit in front of text */
+.social-link {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(199, 120, 221, 0.12);
+  color: #b2aab4;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms;
+}
+
+/* small desktop -> mobile breakpoint: stack and center everything */
+@media (max-width: 680px) {
+  /* stack vertically and center */
+  .site-footer .footer-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 6px;
+  }
+
+  /* hide side lines to free space */
+  .site-footer .footer-line {
+    display: none;
+  }
+
+  /* make icons touch-friendly */
+  .social-link {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* center copyright and move it under icons */
+  .site-footer .copyright {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #cfcfcf;
+    text-align: center;
+  }
+}
+
+/* safety: if you have a global .container set with bg elsewhere, this ensures footer not boxed */
+footer .container {
+  background: transparent !important;
+  box-shadow: none !important;
+}

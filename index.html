@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Oswald:wght@200..700&family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- optional: Font Awesome CDN (use your kit if you have one) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <!-- header is full width; .container centers the nav content -->
+      <div class="container">
+        <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+          <ul class="nav-right social" aria-hidden="false">
+            <li>
+              <a href=""><i class="fa-brands fa-facebook"></i></a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/in/nour-eddine-yassi-727519226"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/NoureddineYassi"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+            </li>
+          </ul>
+
+          <ul class="nav-left main-links">
+            <li>
+              <a href="#about"><span>#</span>About</a>
+            </li>
+            <li>
+              <a href="#education"><span>#</span>Education</a>
+            </li>
+            <li>
+              <a href="#projects"><span>#</span>Projects</a>
+            </li>
+            <li>
+              <a href="#contact"><span>#</span>Contacts</a>
+            </li>
+          </ul>
+
+          <button
+            id="navToggle"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            ☰
+          </button>
+        </nav>
+      </div>
+    </header>
+    <div id="navOverlay" class="nav-overlay" aria-hidden="true"></div>
+
+    <main>
+      <div class="container">
+        <section class="hero" id="about">
+          <div>
+            <div class="intro">
+              <h1>Hi,I am <span>Nour Eddine</span></h1>
+              <h2>I'm a Full Stack Developer</h2>
+              <p>
+                Passionate about crafting clean, responsive, and user-friendly
+                web applications. I love turning ideas into real digital
+                experiences with code that speaks for itself.
+              </p>
+            </div>
+            <div class="button-hero-container"><a href="">Contact Me !</a></div>
+          </div>
+          <div class="imgee">
+            <img src="imag/img1.png" alt="protfolio image" />
+          </div>
+        </section>
+
+        <div class="quote-box">
+          <span class="quote-icon" aria-hidden="true">❝</span>
+          <div>
+            <p class="quote">With great stack comes great responsibility</p>
+            <p class="author">– Full Stack Dev</p>
+          </div>
+          <span class="quote-icon" aria-hidden="true">❞</span>
+        </div>
+
+        <section class="projects-section" id="projects" aria-label="Projects">
+          <div class="projects">
+            <h2><span>#</span> Projects</h2>
+            <div class="linee"></div>
+            <div id="viewal" href="#all-projects" class="viewall">
+              View all &#8669;
+            </div>
+          </div>
+
+          <div class="projects-controls">
+            <button id="prevBtn" class="proj-btn" aria-label="Previous">
+              ‹
+            </button>
+            <button id="nextBtn" class="proj-btn" aria-label="Next">›</button>
+          </div>
+
+          <div class="projects-content" id="projectsContent">
+            <div class="pro-item">
+              <div class="pro-img">
+                <img
+                  src="imag/123.jpg"
+                  srcset="123.jpg 400w, 123.jpg 800w, 123.jpg 1200w"
+                  sizes="(max-width:520px) 100vw, (max-width:1024px) 50vw, 33vw"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Screenshot of Project X UI"
+                />
+              </div>
+              <div class="pro-info">
+                <h3>Project Title</h3>
+                <p>
+                  Brief description of the project goes here. Highlight key
+                  features and technologies used.
+                </p>
+              </div>
+            </div>
+            <div class="pro-item">
+              <div class="pro-img">
+                <img
+                  src="imag/123.jpg"
+                  srcset="
+                    imag/123.jpg  400w,
+                    imag/123.jpg  800w,
+                    imag/123.jpg 1200w
+                  "
+                  sizes="(max-width:520px) 100vw, (max-width:1024px) 50vw, 33vw"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Screenshot of Project X UI"
+                />
+              </div>
+              <div class="pro-info">
+                <h3>Project Title</h3>
+                <p>
+                  Brief description of the project goes here. Highlight key
+                  features and technologies used.
+                </p>
+              </div>
+            </div>
+            <div class="pro-item">
+              <div class="pro-img">
+                <img
+                  src="imag/123.png"
+                  srcset="
+                    imag/123.png  400w,
+                    imag/123.png  800w,
+                    imag/123.png 1200w
+                  "
+                  sizes="(max-width:520px) 100vw, (max-width:1024px) 50vw, 33vw"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Screenshot of Project X UI"
+                />
+              </div>
+              <div class="pro-info">
+                <h3>Project Title</h3>
+                <p>
+                  Brief description of the project goes here. Highlight key
+                  features and technologies used.
+                </p>
+              </div>
+            </div>
+            <div class="pro-item">
+              <div class="pro-img">
+                <img
+                  src="imag/111.png"
+                  srcset="
+                    imag/111.png  400w,
+                    imag/111.png  800w,
+                    imag/111.png 1200w
+                  "
+                  sizes="(max-width:520px) 100vw, (max-width:1024px) 50vw, 33vw"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Screenshot of Project X UI"
+                />
+              </div>
+              <div class="pro-info">
+                <h3>Project Title</h3>
+                <p>
+                  Brief description of the project goes here. Highlight key
+                  features and technologies used.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="education-section"
+          id="education"
+          aria-label="Education"
+        >
+          <div class="projects section-header">
+            <h2><span>#</span> Education</h2>
+            <div class="linee" aria-hidden="true"></div>
+          </div>
+
+          <!-- timeline -->
+          <div class="timeline">
+            <div class="timeline-item left">
+              <div class="year">2017–2018</div>
+              <div class="content">
+                <h3>Baccalaureate in Physical Sciences</h3>
+                <p>High school diploma focused on physics and mathematics.</p>
+              </div>
+              <span class="dot"></span>
+            </div>
+
+            <div class="timeline-item right">
+              <span class="dot"></span>
+              <div class="year">2019–2021</div>
+              <div class="content">
+                <h3>DTS – IT Development</h3>
+                <p>BAC+2 at <span>EFET</span>, web development & databases.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item left">
+              <div class="year">2024–2025</div>
+              <div class="content">
+                <h3>Professional License – Full Stack</h3>
+                <p>BAC+3 Full Stack Development & Databases.</p>
+              </div>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="contact-section" aria-label="Contact">
+          <div class="container">
+            <div class="contact">
+              <h2><span>#</span> Contact Me</h2>
+              <div class="linee" aria-hidden="true"></div>
+            </div>
+
+            <div class="contact-form-wrapper">
+              <div class="contact-msg">
+                <p>
+                  I’m available for freelance projects in web development and
+                  content moderation. If you have a request or question, please
+                  contact me at
+                  <a href="mailto:nordinyassi8@gmail.com"
+                    >nordinyassi8@gmail.com</a
+                  >.
+                </p>
+
+                <img
+                  src="imag/image2.png"
+                  srcset="
+                    imag/image2.png  400w,
+                    imag/image2.png  800w,
+                    imag/image2.png 1200w
+                  "
+                  sizes="(max-width:520px) 100vw, (max-width:1024px) 50vw, 33vw"
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  alt="Screenshot of Project X UI"
+                />
+              </div>
+
+              <form
+                id="contactForm"
+                class="contact-form"
+                action="https://formspree.io/f/mjkqwolv"
+                method="POST"
+                novalidate
+              >
+                <!-- SR-only label style class defined in CSS below -->
+                <label for="name" class="sr-only">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Your Name"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                  aria-describedby="nameHelp"
+                />
+
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                  aria-describedby="emailHelp"
+                />
+
+                <label for="message" class="sr-only">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                  aria-required="true"
+                  aria-describedby="messageHelp"
+                ></textarea>
+
+                <!-- honeypot to reduce spam (invisible to users) -->
+                <label class="sr-only" style="display: none">
+                  Leave this field empty
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabindex="-1"
+                    autocomplete="off"
+                  />
+                </label>
+
+                <button type="submit" class="btn-send">Send Message</button>
+
+                <div
+                  id="formStatus"
+                  class="form-status"
+                  aria-live="polite"
+                ></div>
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner container">
+        <div class="footer-line" aria-hidden="true"></div>
+
+        <div class="footer-center">
+          <div class="social">
+            <!-- If Font Awesome is available use <i class="fa-...">, otherwise use the inline SVG below -->
+            <a
+              href="https://github.com/NoureddineYassi"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+              class="social-link"
+            >
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/nour-eddine-yassi-727519226"
+              target="_blank"
+              rel="noopener"
+              aria-label="LinkedIn"
+              class="social-link"
+            >
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            </a>
+
+            <a href="#" aria-label="Email" class="social-link">
+              <!-- fallback inline SVG if FA missing -->
+              <svg
+                class="icon"
+                viewBox="0 0 24 24"
+                width="16"
+                height="16"
+                aria-hidden="true"
+                fill="currentColor"
+              >
+                <path
+                  d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11zM4 6.9v.01L12 12l8-5.1V6.9L12.3 11 4 6.9z"
+                />
+              </svg>
+            </a>
+          </div>
+
+          <p class="copyright">&copy; 2025 Nour Eddine Yassi</p>
+        </div>
+
+        <div class="footer-line" aria-hidden="true"></div>
+      </div>
+    </footer>
+
+    <script
+      src="https://kit.fontawesome.com/1bffeedbe1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
