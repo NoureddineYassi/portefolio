@@ -102,19 +102,23 @@
   scrollToIndex();
 })();
 
-menu.querySelectorAll('a').forEach((link) => {
-  link.addEventListener('click', () => {
+menu.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const targetId = link.getAttribute('href');
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    // سد المينيو
     setMenu(false);
 
-    // force reflow for mobile browsers
-    requestAnimationFrame(() => {
-      const targetId = link.getAttribute('href');
-      if (targetId && targetId.startsWith('#')) {
-        const target = document.querySelector(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
+    // خلي السكرول يدوز من بعد ما يتحيد no-scroll
+    setTimeout(() => {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 300);
   });
 });
